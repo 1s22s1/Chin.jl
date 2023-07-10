@@ -1,5 +1,5 @@
 module Chin
-
-# Write your package code here.
-
+    function regexp(s, pattern)
+        true
+    end
 end
