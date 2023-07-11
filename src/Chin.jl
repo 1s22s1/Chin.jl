@@ -3,7 +3,7 @@ module Chin
         currentStatus = 0
         acceptedStatus = 1
 
-        arrows = Dict("a" => 1)
+        arrows = Dict(pattern => 1)
 
         if haskey(arrows, s)
             currentStatus = arrows[s]
