@@ -5,6 +5,5 @@ import Chin:
 
 @testset "Chin.jl" begin
     @test regexp("a", "a") == true
-    @test regexp("a", "b") == false
-    @test regexp("a", "c") == false
+    @test regexp("b", "a") == false
 end
