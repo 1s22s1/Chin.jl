@@ -1,17 +1,12 @@
 module Chin
     function regexp(string, pattern)
-        arrows = Dict()
         currentStatus = 0
         acceptedStatus = 1
-
-        nodeNumber = 0
-        for char ∈ split(pattern, "")
-            arrows[arrowKey(char, nodeNumber)] = nodeNumber + 1
-            nodeNumber += 1
-        end
+        arrows = makeArrows(pattern)
 
         for char ∈ split(string, "")
-            currentArrowkey = arrowKey(char, currentStatus)
+            currentArrowkey = arrowKey(currentStatus, char)
+            
             if currentArrowkey ∈ keys(arrows)
                 currentStatus = arrows[currentArrowkey]
             else
@@ -22,7 +17,19 @@ module Chin
         return currentStatus == acceptedStatus
     end
 
-    function arrowKey(input, currentStatus)
-        string(input, "-", currentStatus)
+    function makeArrows(pattern)
+        nodeNumber = 0
+        arrows = Dict()
+
+        for char ∈ split(pattern, "")
+            arrows[arrowKey(nodeNumber, char)] = nodeNumber + 1
+            nodeNumber += 1
+        end
+
+        return arrows
+    end
+
+    function arrowKey(currentStatus, input)
+        string(currentStatus, "-", input)
     end
 end
