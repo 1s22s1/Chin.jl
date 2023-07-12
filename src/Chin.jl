@@ -1,5 +1,5 @@
 module Chin
-    function regexp(s, pattern)
+    function regexp(string, pattern)
         arrows = Dict()
         currentStatus = 0
         acceptedStatus = 1
@@ -10,10 +10,13 @@ module Chin
             nodeNumber += 1
         end
 
-        if arrowKey(s, 0) ∈ keys(arrows)
-            currentStatus = arrows[arrowKey(s, 0)]
-        else
-            return false
+        for char ∈ split(string, "")
+            currentArrowkey = arrowKey(char, currentStatus)
+            if currentArrowkey ∈ keys(arrows)
+                currentStatus = arrows[currentArrowkey]
+            else
+                break
+            end
         end
 
         return currentStatus == acceptedStatus
