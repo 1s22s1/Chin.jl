@@ -13,3 +13,8 @@ end
     @test regexp("a", "a") == true
     @test regexp("b", "a") == false
 end
+
+@testset "連接の場合" begin
+    @test regexp("ab", "ab") == true
+    @test regexp("aa", "ab") == false
+end

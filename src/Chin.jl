@@ -1,9 +1,9 @@
 module Chin
     function regexp(string, pattern)
         currentStatus = 0
-        acceptedStatus = 1
         arrows = makeArrows(pattern)
 
+        acceptedStatus = length(string)
         for char ∈ split(string, "")
             currentArrowkey = arrowKey(currentStatus, char)
             
