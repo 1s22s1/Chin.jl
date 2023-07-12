@@ -4,11 +4,13 @@ module Chin
         currentStatus = 0
         acceptedStatus = 1
 
-        for char in split(pattern, "")
-            arrows[arrowKey(char, 0)] = 1
+        nodeNumber = 0
+        for char ∈ split(pattern, "")
+            arrows[arrowKey(char, nodeNumber)] = nodeNumber + 1
+            nodeNumber += 1
         end
 
-        if haskey(arrows, arrowKey(s, 0))
+        if arrowKey(s, 0) ∈ keys(arrows)
             currentStatus = arrows[arrowKey(s, 0)]
         else
             return false
