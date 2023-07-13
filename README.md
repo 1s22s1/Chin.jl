@@ -9,3 +9,15 @@
 ```console
 $ julia --project=. -e 'using Pkg;Pkg.test()'
 ```
+
+## Debugger.jlの使い方
+
+Chinの上位ディレクトリで、実行する。
+
+```console
+inunigashi@penguin:~/pkgdev$ julia
+
+julia> using Debugger, Chin
+julia> import Chin: letterRegexp
+julia> @enter letterRegexp("a", "ab")
+```

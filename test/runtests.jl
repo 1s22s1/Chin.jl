@@ -24,6 +24,10 @@ end
     @test letterRegexp("aa", "ab") == false
 end
 
+@testset "正規表現と対象文字列の長さが異なる場合" begin
+    @test letterRegexp("a", "ab") == false
+end
+
 @testset "総合テスト" begin
     @test regexp("abcd", "abcd") == true
 end
