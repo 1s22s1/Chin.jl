@@ -1,9 +1,9 @@
 module Chin
-    function regexp(string, pattern, actionPattern="letter")
-        return letterRegexp(string, pattern)
+    function regexp(string, pattern, actionPattern="connection")
+        return connectionRegexp(string, pattern)
     end
 
-    function letterRegexp(string, pattern)
+    function connectionRegexp(string, pattern)
         currentStatus = 0
         arrows = makeArrows(pattern)
         acceptedStatus = length(pattern)
@@ -23,6 +23,10 @@ module Chin
         end
 
         return currentStatus == acceptedStatus
+    end
+
+    function selectRegexp(string, pattern)
+        return true
     end
 
     function makeArrows(pattern)
