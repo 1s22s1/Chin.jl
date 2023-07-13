@@ -6,8 +6,12 @@ module Chin
     function letterRegexp(string, pattern)
         currentStatus = 0
         arrows = makeArrows(pattern)
+        acceptedStatus = length(pattern)
 
-        acceptedStatus = length(string)
+        if length(string) == 0
+            return true
+        end
+
         for char ∈ split(string, "")
             currentArrowkey = arrowKey(currentStatus, char)
             

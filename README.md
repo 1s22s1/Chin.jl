@@ -4,7 +4,7 @@
 
 狆は、週末案件で作成中の正規表現です。
 
-## 検証の実行方法
+## テストの実行方法
 
 ```console
 $ julia --project=. -e 'using Pkg;Pkg.test()'
