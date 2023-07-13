@@ -1,16 +1,11 @@
-# 狆
+# 狆（ちん）
 
 [![Build Status](https://github.com/1s22s1/Chin.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/1s22s1/Chin.jl/actions/workflows/CI.yml?query=branch%3Amain)
 
-狆は、試験的な正規表現ライブラリです。
+狆は、週末案件で作成中の正規表現です。
 
-## 試験の実行方法
-
-Chinの上位ディレクトリで、実行する。
+## 検証の実行方法
 
 ```console
-$ julia
-> ]
-> dev ./Chin
-> test Chin
+$ julia --project=. -e 'using Pkg;Pkg.test()'
 ```
