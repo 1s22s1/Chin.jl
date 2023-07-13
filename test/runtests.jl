@@ -1,7 +1,7 @@
 using Test
 
 import Chin:
-    makeArrows, regexp
+    makeArrows, letterRegexp, regexp
 
 @testset "遷移の作成" begin
     @test makeArrows("a") == Dict("0-a" => 1)
@@ -10,16 +10,20 @@ import Chin:
 end
 
 @testset "0文字の場合" begin
-    @test regexp("", "a") == true
-    @test regexp("", "b") == true
+    @test letterRegexp("", "a") == true
+    @test letterRegexp("", "b") == true
 end
 
 @testset "１文字の場合" begin
-    @test regexp("a", "a") == true
-    @test regexp("b", "a") == false
+    @test letterRegexp("a", "a") == true
+    @test letterRegexp("b", "a") == false
 end
 
 @testset "連接の場合" begin
-    @test regexp("ab", "ab") == true
-    @test regexp("aa", "ab") == false
+    @test letterRegexp("ab", "ab") == true
+    @test letterRegexp("aa", "ab") == false
+end
+
+@testset "総合テスト" begin
+    @test regexp("abcd", "abcd") == true
 end

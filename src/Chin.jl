@@ -1,5 +1,9 @@
 module Chin
-    function regexp(string, pattern)
+    function regexp(string, pattern, actionPattern="letter")
+        return letterRegexp(string, pattern)
+    end
+
+    function letterRegexp(string, pattern)
         currentStatus = 0
         arrows = makeArrows(pattern)
 
