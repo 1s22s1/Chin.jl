@@ -7,7 +7,7 @@
 ## テストの実行方法
 
 ```console
-$ julia --project=. -e 'using Pkg;Pkg.test()'
+julia --project=. -e 'using Pkg;Pkg.test()'
 ```
 
 ## Debugger.jlの使い方
