@@ -1,15 +1,15 @@
 using Test
 
 import Chin:
-    makeArrows, connectionRegexp, regexp
-
-@testset "遷移の作成" begin
-    @test makeArrows("a") == Dict("0-a" => 1)
-    @test makeArrows("ab") == Dict("0-a" => 1, "1-b" => 2)
-    @test makeArrows("abc") == Dict("0-a" => 1, "1-b" => 2, "2-c" => 3)
-end
+makeConnectionArrows, connectionRegexp, selectRegexp, regexp
 
 @testset "連接の場合" begin
+    @testset "遷移の作成" begin
+        @test makeConnectionArrows("a") == Dict("0-a" => 1)
+        @test makeConnectionArrows("ab") == Dict("0-a" => 1, "1-b" => 2)
+        @test makeConnectionArrows("abc") == Dict("0-a" => 1, "1-b" => 2, "2-c" => 3)
+    end
+
     @testset "0文字の場合" begin
         @test connectionRegexp("", "a") == true
         @test connectionRegexp("", "b") == true
@@ -27,6 +27,14 @@ end
 
     @testset "正規表現と対象文字列の長さが異なる場合" begin
         @test connectionRegexp("a", "ab") == false
+    end
+end
+
+@testset "選択の場合" begin
+    @testset "2つからの選択の場合" begin
+        @test selectRegexp("a", "a|b") == true
+        # @test selectRegexp("b", "a|b") == true
+        # @test selectRegexp("c", "a|b") == true
     end
 end
 

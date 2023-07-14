@@ -5,7 +5,7 @@ module Chin
 
     function connectionRegexp(string, pattern)
         currentStatus = 0
-        arrows = makeArrows(pattern)
+        arrows = makeConnectionArrows(pattern)
         acceptedStatus = length(pattern)
 
         if length(string) == 0
@@ -29,7 +29,7 @@ module Chin
         return true
     end
 
-    function makeArrows(pattern)
+    function makeConnectionArrows(pattern)
         nodeNumber = 0
         arrows = Dict()
 
