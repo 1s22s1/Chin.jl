@@ -41,7 +41,5 @@ module Chin
         return arrows
     end
 
-    function arrowKey(currentStatus, input)
-        string(currentStatus, "-", input)
-    end
+    arrowKey(currentStatus, input) = string(currentStatus, "-", input)
 end
