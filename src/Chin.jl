@@ -4,13 +4,13 @@ module Chin
     end
 
     function connectionRegexp(string, pattern)
-        currentStatus = 0
-        arrows = makeConnectionArrows(pattern)
-        acceptedStatus = length(pattern)
-
         if length(string) == 0
             return true
         end
+
+        currentStatus = 0
+        arrows = makeConnectionArrows(pattern)
+        acceptedStatus = length(pattern)
 
         for char ∈ split(string, "")
             currentArrowkey = arrowKey(currentStatus, char)
@@ -38,7 +38,19 @@ module Chin
     end
 
     function selectRegexp(string, pattern)
-        return true
+        if length(string) == 0
+            return true
+        end
+
+        currentStatus = 0
+        arrows = makeSelectArrows(pattern)
+        acceptedStatus = 1
+
+        if arrowKey(0, string) ∈ keys(arrows)
+            currentStatus = 1
+        end
+
+        return currentStatus == acceptedStatus
     end
 
     function makeSelectArrows(pattern)

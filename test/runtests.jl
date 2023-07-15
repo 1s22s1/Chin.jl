@@ -37,10 +37,15 @@ end
         @test makeSelectArrows("a|b|c|d") == Dict("0-a" => 1, "0-b" => 1, "0-c" => 1, "0-d" => 1)
     end
 
+    @testset "0文字の場合" begin
+        @test connectionRegexp("", "a|b") == true
+        @test connectionRegexp("", "a|b|c") == true
+    end
+
     @testset "2つからの選択の場合" begin
         @test selectRegexp("a", "a|b") == true
-        # @test selectRegexp("b", "a|b") == true
-        # @test selectRegexp("c", "a|b") == true
+        @test selectRegexp("b", "a|b") == true
+        @test selectRegexp("c", "a|b") == false
     end
 end
 
