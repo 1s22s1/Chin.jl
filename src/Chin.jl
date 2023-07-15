@@ -1,6 +1,10 @@
 module Chin
     function regexp(string, pattern, actionPattern="connection")
-        return connectionRegexp(string, pattern)
+        if actionPattern == "connection"
+            return connectionRegexp(string, pattern)
+        else
+            return selectRegexp(string, pattern)
+        end
     end
 
     function connectionRegexp(string, pattern)

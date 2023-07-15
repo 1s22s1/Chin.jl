@@ -47,8 +47,16 @@ end
         @test selectRegexp("b", "a|b") == true
         @test selectRegexp("c", "a|b") == false
     end
+
+    @testset "3つからの選択の場合" begin
+        @test selectRegexp("a", "a|b|c") == true
+        @test selectRegexp("b", "a|b|c") == true
+        @test selectRegexp("c", "a|b|c") == true
+        @test selectRegexp("d", "a|b|c") == false
+    end
 end
 
 @testset "総合テスト" begin
-    @test regexp("abcd", "abcd") == true
+    @test regexp("abcd", "abcd", "connection") == true
+    @test regexp("a", "a|b|c", "select") == true
 end
