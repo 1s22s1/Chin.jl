@@ -25,10 +25,6 @@ module Chin
         return currentStatus == acceptedStatus
     end
 
-    function selectRegexp(string, pattern)
-        return true
-    end
-
     function makeConnectionArrows(pattern)
         nodeNumber = 0
         arrows = Dict()
@@ -36,6 +32,20 @@ module Chin
         for char ∈ split(pattern, "")
             arrows[arrowKey(nodeNumber, char)] = nodeNumber + 1
             nodeNumber += 1
+        end
+
+        return arrows
+    end
+
+    function selectRegexp(string, pattern)
+        return true
+    end
+
+    function makeSelectArrows(pattern)
+        arrows = Dict()
+
+        for char ∈ split(pattern, '|')
+            arrows[arrowKey(0, char)] = 1
         end
 
         return arrows

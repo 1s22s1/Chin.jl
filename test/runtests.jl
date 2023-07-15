@@ -1,7 +1,7 @@
 using Test
 
 import Chin:
-makeConnectionArrows, connectionRegexp, selectRegexp, regexp
+makeConnectionArrows, connectionRegexp, makeSelectArrows, selectRegexp, regexp
 
 @testset "連接の場合" begin
     @testset "遷移の作成" begin
@@ -31,6 +31,12 @@ makeConnectionArrows, connectionRegexp, selectRegexp, regexp
 end
 
 @testset "選択の場合" begin
+    @testset "遷移の作成" begin
+        @test makeSelectArrows("a|b") == Dict("0-a" => 1, "0-b" => 1)
+        @test makeSelectArrows("a|b|c") == Dict("0-a" => 1, "0-b" => 1, "0-c" => 1)
+        @test makeSelectArrows("a|b|c|d") == Dict("0-a" => 1, "0-b" => 1, "0-c" => 1, "0-d" => 1)
+    end
+
     @testset "2つからの選択の場合" begin
         @test selectRegexp("a", "a|b") == true
         # @test selectRegexp("b", "a|b") == true
