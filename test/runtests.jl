@@ -1,8 +1,13 @@
 using Test
 
-import Chin: matchOneAutomaton
+import Chin: oneAutomaton, connectionAutomaton
 
 @testset "一文字に対するオートマトンを作成する" begin
-    @test matchOneAutomaton("a") == [0 "a"; 0 0]
-    @test matchOneAutomaton("ϵ") == [0 "ϵ"; 0 0]
+    @test oneAutomaton("s") == [0 "s"; 0 0]
+    @test oneAutomaton("ϵ") == [0 "ϵ"; 0 0]
+end
+
+
+@testset "連接に対するオートマトンを作成する" begin
+    @test connectionAutomaton(oneAutomaton("s"), oneAutomaton("t")) === nothing
 end
