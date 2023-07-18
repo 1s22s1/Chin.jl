@@ -1,5 +1,5 @@
 module Chin
-    using Printf
+    # using Printf
 
     function oneAutomaton(character)
         [
@@ -9,25 +9,22 @@ module Chin
     end
 
     function  connectionAutomaton(s, t)
-        # f = t[1, end]
-        # A = zeros(Int, ndims(s))
-        # A[end] = f
+        A = [s zeros(Int, ndims(s))]
+        A[end] = t[1, end]
 
-        # B = [s, A]
-
-        # B
+        [A; transpose(zeros(Int, ndims(s)+1))]
     end
 
     function main()
-        s = oneAutomaton("s")
-        t = oneAutomaton("t")
+        # s = oneAutomaton("s")
+        # t = oneAutomaton("t")
 
-        A = [s zeros(Int, ndims(s))]
-        A[end] = t[1, end]
-        B = [A; transpose(zeros(Int, ndims(s)+1))]
+        # A = [s zeros(Int, ndims(s))]
+        # A[end] = t[1, end]
+        # B = [A; transpose(zeros(Int, ndims(s)+1))]
 
-        @printf("A=%s\n", string(A))
-        @printf("B=%s\n", string(B))
+        # @printf("A=%s\n", string(A))
+        # @printf("B=%s\n", string(B))
     end
 end
 
