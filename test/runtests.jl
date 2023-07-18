@@ -13,4 +13,9 @@ end
     tAutomaton = [0 "t"; 0 0]
 
     @test connectionAutomaton(sAutomaton, tAutomaton) == [0 "s" 0; 0 0 "t"; 0 0 0]
+
+    stAutomaton = [0 "s" 0; 0 0 "t"; 0 0 0]
+    uAutomaton = [0 "u"; 0 0]
+
+    @test connectionAutomaton(stAutomaton, uAutomaton) == [0 "s" 0 0; 0 0 "t" 0; 0 0 0 "u"; 0 0 0 0]
 end
