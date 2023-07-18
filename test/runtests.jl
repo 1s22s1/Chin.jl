@@ -9,5 +9,8 @@ end
 
 
 @testset "連接に対するオートマトンを作成する" begin
-    @test connectionAutomaton(oneAutomaton("s"), oneAutomaton("t")) == [0 "s" 0; 0 0 "t"; 0 0 0]
+    sAutomaton = [0 "s"; 0 0]
+    tAutomaton = [0 "t"; 0 0]
+
+    @test connectionAutomaton(sAutomaton, tAutomaton) == [0 "s" 0; 0 0 "t"; 0 0 0]
 end
