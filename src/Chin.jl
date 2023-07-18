@@ -7,6 +7,12 @@ module Chin
     end
 
     function  connectionAutomaton(s, t)
-        nothing
+        # f = t[1, end]
+        # A = zeros(Int, ndims(s))
+        # A[end] = f
+
+        # B = [s, A]
+
+        # B
     end
 end
