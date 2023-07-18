@@ -1,8 +1,8 @@
 using Test
 
-import Chin: Arrow, matchOneAutomaton
+import Chin: matchOneAutomaton
 
 @testset "一文字に対するオートマトンを作成する" begin
-    @test matchOneAutomaton("a") == Arrow(0, 1, "a")
-    @test matchOneAutomaton("ϵ") == Arrow(0, 1, "ϵ")
+    @test matchOneAutomaton("a") == [0 "a"; 0 0]
+    @test matchOneAutomaton("ϵ") == [0 "ϵ"; 0 0]
 end

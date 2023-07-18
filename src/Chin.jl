@@ -1,12 +1,9 @@
 module Chin
-    struct Arrow
-        fromNode::Int
-        toNode::Int
-        arrowValue::String
-    end
-
-    function matchOneAutomaton(string)
-        Arrow(0, 1, string)
+    function matchOneAutomaton(character)
+        [
+            0 character
+            0 0
+        ]
     end
     # function regexp(string, pattern, actionPattern="connection")
     #     if actionPattern == "connection"
