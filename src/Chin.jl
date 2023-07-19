@@ -9,20 +9,13 @@ module Chin
     end
 
     function  connectionAutomaton(s, t)
-        A = [s zeros(Int, ndims(s))]
+        A = [s zeros(Int, size(s, 1))]
         A[end] = t[1, end]
 
-        [A; transpose(zeros(Int, ndims(s)+1))]
+        [A; transpose(zeros(Int, size(s, 1)+1))]
     end
 
     function main()
-        # s = oneAutomaton("s")
-        # t = oneAutomaton("t")
-
-        # A = [s zeros(Int, ndims(s))]
-        # A[end] = t[1, end]
-        # B = [A; transpose(zeros(Int, ndims(s)+1))]
-
         # @printf("A=%s\n", string(A))
         # @printf("B=%s\n", string(B))
     end
