@@ -2,10 +2,10 @@ module Chin
     # using Printf
 
     function oneAutomaton(character)
-        [
-            0 character
-            0 0
-        ]
+        graph = []
+
+        edge = Dict(:next => length(graph) + 1, :value => character)
+        push!(graph, edge)
     end
 
     function  connectionAutomaton(s, t)
@@ -16,8 +16,13 @@ module Chin
     end
 
     function main()
-        # @printf("A=%s\n", string(A))
-        # @printf("B=%s\n", string(B))
+        # char = "s"
+        # graph = []
+
+        # edge = Dict(:nextEdge => length(graph) + 1, :value => char)
+        # push!(graph, edge)
+
+        # @printf("A=%s\n", string(graph))
     end
 end
 
