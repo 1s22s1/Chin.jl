@@ -4,8 +4,8 @@ module Chin
     function oneAutomaton(character)
         graph = []
 
-        edge = Dict(:next => length(graph) + 1, :value => character)
-        push!(graph, edge)
+        push!(graph, Dict(:next => length(graph) + 1, :value => character))
+        push!(graph, Dict())
     end
 
     function  connectionAutomaton(s, t)
@@ -17,7 +17,7 @@ module Chin
 
     function main()
         # char = "s"
-        # graph = []
+        # graph = [Dict()]
 
         # edge = Dict(:nextEdge => length(graph) + 1, :value => char)
         # push!(graph, edge)

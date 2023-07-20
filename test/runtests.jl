@@ -3,8 +3,8 @@ using Test
 import Chin: oneAutomaton, connectionAutomaton
 
 @testset "一文字に対するオートマトンを作成する" begin
-    @test oneAutomaton("s") == [Dict(:next => 1, :value => "s")]
-    @test oneAutomaton("ϵ") == [Dict(:next => 1, :value => "ϵ")]
+    @test oneAutomaton("s") == [Dict(:next => 1, :value => "s"), Dict()]
+    @test oneAutomaton("ϵ") == [Dict(:next => 1, :value => "ϵ"), Dict()]
 end
 
 
