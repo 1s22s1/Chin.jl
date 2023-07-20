@@ -14,8 +14,9 @@ end
 
     @test connectionAutomaton(sAutomaton, tAutomaton) == [Dict(:next => 1, :value => "s"), Dict(:next => 2, :value => "t"), Dict()]
 
-    # stAutomaton = [0 "s" 0; 0 0 "t"; 0 0 0]
-    # uAutomaton = [0 "u"; 0 0]
+    stAutomaton = [Dict(:next => 1, :value => "s"), Dict(:next => 2, :value => "t"), Dict()]
+    uAutomaton = [Dict(:next => 1, :value => "u"), Dict()]
 
-    # @test connectionAutomaton(stAutomaton, uAutomaton) == [0 "s" 0 0; 0 0 "t" 0; 0 0 0 "u"; 0 0 0 0]
+    @test connectionAutomaton(stAutomaton, uAutomaton) == [Dict(:next => 1, :value => "s"), Dict(:next => 2, :value => "t"), Dict(:next => 3, :value => "u"), Dict()]
+    # @test connectionAutomaton(uAutomaton, stAutomaton) == [Dict(:next => 1, :value => "u"), Dict(:next => 2, :value => "s"), Dict(:next => 3, :value => "t"), Dict()]
 end
