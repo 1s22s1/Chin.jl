@@ -7,7 +7,6 @@ import Chin: oneAutomaton, connectionAutomaton
     @test oneAutomaton("ϵ") == [Dict(:next => 1, :value => "ϵ"), Dict()]
 end
 
-
 @testset "連接に対するオートマトンを作成する" begin
     sAutomaton = [Dict(:next => 1, :value => "s"), Dict()]
     tAutomaton = [Dict(:next => 1, :value => "t"), Dict()]

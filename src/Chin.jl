@@ -10,11 +10,7 @@ module Chin
 
     function connectionAutomaton(automaton1, automaton2)
         map(d->  d[:next] = d[:next] + length(automaton1) - 1, filter(d->:next ∈ keys(d), automaton2))
-
         automaton1[end] = merge(automaton1[end], automaton2[begin])
-
-        # automaton1
-        # automaton2[begin + 1 : end]
 
         [automaton1; automaton2[begin + 1 : end]]
     end
