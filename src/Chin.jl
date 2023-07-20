@@ -1,5 +1,5 @@
 module Chin
-    using Printf
+    # using Printf
 
     function oneAutomaton(character)
         graph = []
@@ -9,29 +9,24 @@ module Chin
     end
 
     function  connectionAutomaton(s, t)
-        A = [s zeros(Int, size(s, 1))]
-        A[end] = t[1, end]
+        map(d->  d[:next] = d[:next] + length(s) - 1, filter(d->:next ∈ keys(d), t))
+        s[end] = merge(s[end], t[begin])
 
-        [A; transpose(zeros(Int, size(s, 1)+1))]
+        [s; t[begin + 1 : end]]
     end
 
     function main()
-        graph = []
+        # graph = []
 
-        s = [Dict(:next => 1, :value => "s"), Dict()]
-        t = [Dict(:next => 1, :value => "t"), Dict()]
+        # s = [Dict(:next => 1, :value => "s"), Dict()]
+        # t = [Dict(:next => 1, :value => "t"), Dict()]
 
-        for d in t
-            if :next ∈ keys(d)
-                d[:next] = d[:next] + length(s) - 1
-            end
-        end
+        # map(d->  d[:next] = d[:next] + length(s) - 1, filter(d->:next ∈ keys(d), t))
 
-        s[end] = merge(s[end], t[begin])
-        push!(graph, s)
-        push!(graph, t[begin + 1 : end])
+        # s[end] = merge(s[end], t[begin])
+        # graph = [s; t[begin + 1 : end]]
 
-        @printf("A=%s\n", string(graph))
+        # @printf("A=%s\n", string(graph))
     end
 end
 
