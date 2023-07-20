@@ -1,5 +1,5 @@
 module Chin
-    # using Printf
+    using Printf
 
     function oneAutomaton(character)
         graph = []
@@ -16,13 +16,22 @@ module Chin
     end
 
     function main()
-        # char = "s"
-        # graph = [Dict()]
+        graph = []
 
-        # edge = Dict(:nextEdge => length(graph) + 1, :value => char)
-        # push!(graph, edge)
+        s = [Dict(:next => 1, :value => "s"), Dict()]
+        t = [Dict(:next => 1, :value => "t"), Dict()]
 
-        # @printf("A=%s\n", string(graph))
+        for d in t
+            if :next ∈ keys(d)
+                d[:next] = d[:next] + length(s) - 1
+            end
+        end
+
+        s[end] = merge(s[end], t[begin])
+        push!(graph, s)
+        push!(graph, t[begin + 1 : end])
+
+        @printf("A=%s\n", string(graph))
     end
 end
 
