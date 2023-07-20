@@ -8,7 +8,7 @@ module Chin
         push!(graph, Dict())
     end
 
-    function  connectionAutomaton(s, t)
+    function connectionAutomaton(s, t)
         map(d->  d[:next] = d[:next] + length(s) - 1, filter(d->:next ∈ keys(d), t))
         s[end] = merge(s[end], t[begin])
 
