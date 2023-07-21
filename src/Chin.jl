@@ -1,5 +1,5 @@
 module Chin
-    # using Printf
+    using Printf
 
     function oneAutomaton(character)
         graph = []
@@ -23,16 +23,17 @@ module Chin
     end
 
     function main()
-        # graph = []
-        # automaton1 = [Dict(:next => 1, :value => "u"), Dict()]
-        # automaton2 = [Dict(:next => 1, :value => "s"), Dict(:next => 2, :value => "t"), Dict()]
+        sAutomaton = oneAutomaton("s")
+        tAutomaton = oneAutomaton("t")
 
-        # map(d->  d[:next] = d[:next] + length(automaton1) - 1, filter(d->:next ∈ keys(d), automaton2))
+        selectionAutomaton = connectionAutomaton(oneAutomaton("ϵ"), sAutomaton)
+        selectionAutomaton = connectionAutomaton(selectionAutomaton, oneAutomaton("ϵ"))
 
-        # automaton1[end] = merge(automaton1[end], automaton2[begin])
-        # graph = [automaton1; automaton2[begin + 1 : end]]
+        map(d->  d[:next] = d[:next] + length(selectionAutomaton), filter(d->:next ∈ keys(d), tAutomaton))
 
-        # @printf("A=%s\n", string(graph))
+
+        @printf("tAutomaton=%s\n", string(tAutomaton))
+        @printf("selectionAutomaton=%s\n", string(selectionAutomaton))
     end
 end
 
