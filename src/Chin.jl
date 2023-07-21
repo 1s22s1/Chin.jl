@@ -18,6 +18,10 @@ module Chin
         [copyAutomaton1; copyAutomaton2[begin + 1 : end]]
     end
 
+    function selectionAutomaton(automaton1, automaton2)
+        true
+    end
+
     function main()
         # graph = []
         # automaton1 = [Dict(:next => 1, :value => "u"), Dict()]
