@@ -1,11 +1,11 @@
 module Chin
-    using Printf
+    # using Printf
 
     function oneAutomaton(character)
         graph = []
 
-        push!(graph, Dict(:next => length(graph) + 1, :value => character))
-        push!(graph, Dict())
+        push!(graph, (:next => length(graph) + 1, :value => character))
+        push!(graph, ())
     end
 
     function connectionAutomaton(automaton1, automaton2)
@@ -23,17 +23,17 @@ module Chin
     end
 
     function main()
-        sAutomaton = oneAutomaton("s")
-        tAutomaton = oneAutomaton("t")
+        # sAutomaton = oneAutomaton("s")
+        # tAutomaton = oneAutomaton("t")
 
-        selectionAutomaton = connectionAutomaton(oneAutomaton("ϵ"), sAutomaton)
-        selectionAutomaton = connectionAutomaton(selectionAutomaton, oneAutomaton("ϵ"))
+        # selectionAutomaton = connectionAutomaton(oneAutomaton("ϵ"), sAutomaton)
+        # selectionAutomaton = connectionAutomaton(selectionAutomaton, oneAutomaton("ϵ"))
 
-        map(d->  d[:next] = d[:next] + length(selectionAutomaton), filter(d->:next ∈ keys(d), tAutomaton))
+        # map(d->  d[:next] = d[:next] + length(selectionAutomaton), filter(d->:next ∈ keys(d), tAutomaton))
 
 
-        @printf("tAutomaton=%s\n", string(tAutomaton))
-        @printf("selectionAutomaton=%s\n", string(selectionAutomaton))
+        # @printf("tAutomaton=%s\n", string(tAutomaton))
+        # @printf("selectionAutomaton=%s\n", string(selectionAutomaton))
     end
 end
 
