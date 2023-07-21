@@ -9,10 +9,13 @@ module Chin
     end
 
     function connectionAutomaton(automaton1, automaton2)
-        map(d->  d[:next] = d[:next] + length(automaton1) - 1, filter(d->:next ∈ keys(d), automaton2))
-        automaton1[end] = merge(automaton1[end], automaton2[begin])
+        copyAutomaton1 = deepcopy(automaton1)
+        copyAutomaton2 = deepcopy(automaton2)
 
-        [automaton1; automaton2[begin + 1 : end]]
+        map(d->  d[:next] = d[:next] + length(copyAutomaton1) - 1, filter(d->:next ∈ keys(d), copyAutomaton2))
+        copyAutomaton1[end] = merge(copyAutomaton1[end], copyAutomaton2[begin])
+
+        [copyAutomaton1; copyAutomaton2[begin + 1 : end]]
     end
 
     function main()
