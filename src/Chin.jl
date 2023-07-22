@@ -13,7 +13,7 @@ module Chin
         copyAutomaton2 = deepcopy(automaton2)
 
         map(d->  d[:next] = d[:next] + length(copyAutomaton1) - 1, filter(d->:next ∈ keys(d), copyAutomaton2))
-        copyAutomaton1[end] = merge(copyAutomaton1[end], copyAutomaton2[begin])
+        push!(copyAutomaton1[end], copyAutomaton2[begin])
 
         [copyAutomaton1; copyAutomaton2[begin + 1 : end]]
     end
