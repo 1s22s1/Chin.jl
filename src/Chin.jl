@@ -4,8 +4,8 @@ module Chin
     function oneAutomaton(character)
         graph = []
 
-        push!(graph, (:next => length(graph) + 1, :value => character))
-        push!(graph, ())
+        push!(graph, [(:next => length(graph) + 1, :value => character)])
+        push!(graph, [()])
     end
 
     function connectionAutomaton(automaton1, automaton2)
