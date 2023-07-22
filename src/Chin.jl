@@ -2,10 +2,10 @@ module Chin
     # using Printf
 
     function oneAutomaton(character)
-        graph = []
+        automaton = []
 
-        push!(graph, [(:next => length(graph) + 1, :value => character)])
-        push!(graph, [()])
+        push!(automaton, [(next = length(automaton) + 1, value = character)])
+        push!(automaton, [()])
     end
 
     function connectionAutomaton(automaton1, automaton2)
@@ -26,14 +26,17 @@ module Chin
         # sAutomaton = oneAutomaton("s")
         # tAutomaton = oneAutomaton("t")
 
-        # selectionAutomaton = connectionAutomaton(oneAutomaton("ϵ"), sAutomaton)
-        # selectionAutomaton = connectionAutomaton(selectionAutomaton, oneAutomaton("ϵ"))
+        # copyAutomaton1 = deepcopy(sAutomaton)
+        # copyAutomaton2 = deepcopy(tAutomaton)
 
-        # map(d->  d[:next] = d[:next] + length(selectionAutomaton), filter(d->:next ∈ keys(d), tAutomaton))
+        # for node in copyAutomaton2
+        #     for arrow in node
+        #         @printf("arrow=%s\n", string(arrow))
+        #     end
+        # end
 
-
-        # @printf("tAutomaton=%s\n", string(tAutomaton))
-        # @printf("selectionAutomaton=%s\n", string(selectionAutomaton))
+        # @printf("copyAutomaton1=%s\n", string(copyAutomaton1))
+        # @printf("copyAutomaton2=%s\n", string(copyAutomaton2))
     end
 end
 
