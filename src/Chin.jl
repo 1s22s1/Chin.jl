@@ -1,5 +1,5 @@
 module Chin
-    using Printf
+    # using Printf
 
     function oneAutomaton(character)
         automaton = []
@@ -24,7 +24,7 @@ module Chin
             end
 
             if i == 1 
-                copyAutomaton1[1] = [copyAutomaton1[1] newArrows]
+                copyAutomaton1[1] = [copyAutomaton1[1], newArrows]
             elseif i == length(copyAutomaton2)
                 break
             else
@@ -58,7 +58,7 @@ module Chin
             end
 
             if i == 1 
-                copyAutomaton1[1] = [copyAutomaton1[1] newArrows]
+                copyAutomaton1[1] = [copyAutomaton1[1], newArrows]
             elseif i == length(copyAutomaton2)
                 break
             else
@@ -67,8 +67,8 @@ module Chin
         end
 
         # [[(next = 1, value = "s")], [(next = 2, value = "t")], [()]]
-        @printf("copyAutomaton1=%s\n", string(copyAutomaton1))
-        @printf("copyAutomaton2=%s\n", string(copyAutomaton2))
+        # @printf("copyAutomaton1=%s\n", string(copyAutomaton1))
+        # @printf("copyAutomaton2=%s\n", string(copyAutomaton2))
     end
 end
 
