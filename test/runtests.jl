@@ -11,7 +11,7 @@ end
     sAutomaton = [[(next = 1, value = "s")], []]
     tAutomaton = [[(next = 1, value = "t")], []]
     uAutomaton = [[(next = 1, value = "u")], []]
-    stAutomaton = [[(next = 1, value = "s")], [(next = 2, value = "t")], [()]]
+    stAutomaton = [[(next = 1, value = "s")], [(next = 2, value = "t")], []]
 
     @test connectionAutomaton(sAutomaton, tAutomaton) == [[(next = 1, value = "s")], [(next = 2, value = "t")], []]
     @test connectionAutomaton(stAutomaton, uAutomaton) == [[(next = 1, value = "s")], [(next = 2, value = "t")], [(next = 3, value = "u")], []]
