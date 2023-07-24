@@ -16,7 +16,7 @@ module Chin
             newNode = []
             for arrow in node
                 if :next ∈ keys(arrow)
-                    push!(newNode, (next = arrow.next, value = arrow.value))
+                    push!(newNode, (next = arrow.next + length(automaton1) - 1, value = arrow.value))
                 else
                     push!(newNode, ())
                 end
