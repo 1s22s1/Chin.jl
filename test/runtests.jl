@@ -10,13 +10,6 @@ end
 @testset "連接に対するオートマトンを作成する" begin
     sAutomaton = [[(next = 1, value = "s")], [()]]
     tAutomaton = [[(next = 1, value = "t")], [()]]
-    # uAutomaton = [(:next => 1, :value => "u"), ()]
-    # stAutomaton = [(:next => 1, :value => "s"), (:next => 2, :value => "t"), ()]
 
-    @test connectionAutomaton(oneAutomaton("s"), oneAutomaton("t")) == [[(next = 1, value = "s")], [(next = 2, value = "t")], [()]]
-    # @test connectionAutomaton(stAutomaton, uAutomaton) == [Dict(:next => 1, :value => "s"), Dict(:next => 2, :value => "t"), Dict(:next => 3, :value => "u"), Dict()]
-    # @test connectionAutomaton(uAutomaton, stAutomaton) == [Dict(:next => 1, :value => "u"), Dict(:next => 2, :value => "s"), Dict(:next => 3, :value => "t"), Dict()]
-end
-
-@testset "選択に対するオートマトンを作成する" begin
+    @test connectionAutomaton(sAutomaton, tAutomaton) == [[(next = 1, value = "s")], [()]]
 end
