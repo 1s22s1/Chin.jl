@@ -33,7 +33,10 @@ module Chin
     end
 
     function selectionAutomaton(automaton1, automaton2)
-        return [[()]]
+        copyAutomaton1 = deepcopy(automaton1)
+        copyAutomaton2 = deepcopy(automaton2)
+
+        return [[(next = 1, value = "ϵ"), (next = 2, value = "ϵ")], [()], [()]]
     end
 
     function main()
