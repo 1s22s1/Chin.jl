@@ -54,7 +54,6 @@ module Chin
 
         pop!(returnAutomaton)
         push!(returnAutomaton[1], (next = beginCopyAutomaton2Length, value = "ϵ"))
-        # push!(returnAutomaton[end], (next = returnAutomatonLength - 1, value = "ϵ"))
 
         return returnAutomaton
     end
