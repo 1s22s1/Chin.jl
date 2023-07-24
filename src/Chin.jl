@@ -12,6 +12,10 @@ module Chin
         copyAutomaton1 = deepcopy(automaton1)
         copyAutomaton2 = deepcopy(automaton2)
 
+        for node in copyAutomaton2
+            push!(copyAutomaton1, node)
+        end
+
         return copyAutomaton1
     end
 
