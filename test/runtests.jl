@@ -28,6 +28,7 @@ end
         [(next = 2, value = "s")],
         [(next = 3, value = "ϵ")],
         [()],
-        [(next = 5, value = "t")]
+        [(next = 5, value = "t")],
+        [(next = 3, value = "ϵ")]
     ]
 end

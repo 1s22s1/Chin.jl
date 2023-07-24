@@ -39,7 +39,6 @@ module Chin
         returnAutomaton = connectionAutomaton(connectionAutomaton(oneAutomaton("ϵ"), copyAutomaton1), oneAutomaton("ϵ"))
         returnAutomatonLength = length(returnAutomaton)
         beginCopyAutomaton2Length = returnAutomatonLength
-        endCopyAutomaton2Length = returnAutomatonLength + length(copyAutomaton2)
 
         for node in copyAutomaton2
             newNode = []
@@ -54,6 +53,7 @@ module Chin
 
         pop!(returnAutomaton)
         push!(returnAutomaton[1], (next = beginCopyAutomaton2Length, value = "ϵ"))
+        push!(returnAutomaton, [(next = returnAutomatonLength - 1, value = "ϵ")])
 
         return returnAutomaton
     end
