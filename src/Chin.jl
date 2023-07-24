@@ -13,7 +13,16 @@ module Chin
         copyAutomaton2 = deepcopy(automaton2)
 
         for node in copyAutomaton2
-            push!(copyAutomaton1, node)
+            newNode = []
+            for arrow in node
+                if :next ∈ keys(arrow)
+                    push!(newNode, (next = arrow.next, value = arrow.value))
+                else
+                    push!(newNode, ())
+                end
+            end
+
+            push!(copyAutomaton1, newNode)
         end
 
         return copyAutomaton1
