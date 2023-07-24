@@ -11,12 +11,13 @@ module Chin
     function connectionAutomaton(automaton1, automaton2)
         copyAutomaton1 = deepcopy(automaton1)
         copyAutomaton2 = deepcopy(automaton2)
+        automaton1Length = length(automaton1)
 
         for node in copyAutomaton2
             newNode = []
             for arrow in node
                 if :next ∈ keys(arrow)
-                    push!(newNode, (next = arrow.next + length(automaton1) - 1, value = arrow.value))
+                    push!(newNode, (next = arrow.next + automaton1Length - 1, value = arrow.value))
                 else
                     push!(newNode, ())
                 end
@@ -24,6 +25,8 @@ module Chin
 
             push!(copyAutomaton1, newNode)
         end
+
+        copyAutomaton1[automaton1Length] = copyAutomaton1[automaton1Length + 1]
 
         return copyAutomaton1
     end
