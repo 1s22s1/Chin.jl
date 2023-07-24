@@ -23,5 +23,5 @@ end
     sAutomaton = [[(next = 1, value = "s")], [()]]
     tAutomaton = [[(next = 1, value = "t")], [()]]
 
-    @test selectionAutomaton(sAutomaton, tAutomaton) == [[(next = 1, value = "ϵ"), (next = 4, value = "ϵ")], [(next = 2, value = "s")], [(next = 3, value = "ϵ")], [()], [(next = 4, value = "t")], []]
+    @test selectionAutomaton(sAutomaton, tAutomaton) == [[(next = 1, value = "ϵ"), (next = 4, value = "ϵ")], [(next = 2, value = "s")], [(next = 3, value = "ϵ")], [()], [(next = 4, value = "t")]]
 end
