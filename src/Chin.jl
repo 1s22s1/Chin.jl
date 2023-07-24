@@ -5,7 +5,7 @@ module Chin
         automaton = []
 
         push!(automaton, [(next = length(automaton) + 1, value = character)])
-        push!(automaton, [()])
+        push!(automaton, [])
     end
 
     function connectionAutomaton(automaton1, automaton2)
@@ -18,8 +18,6 @@ module Chin
             for arrow in node
                 if :next ∈ keys(arrow)
                     push!(newNode, (next = arrow.next + automaton1Length - 1, value = arrow.value))
-                else
-                    push!(newNode, ())
                 end
             end
 
