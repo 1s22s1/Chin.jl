@@ -27,6 +27,7 @@ module Chin
         end
 
         copyAutomaton1[automaton1Length] = copyAutomaton1[automaton1Length + 1]
+        popat!(copyAutomaton1, automaton1Length + 1)
 
         return copyAutomaton1
     end
