@@ -32,6 +32,10 @@ module Chin
         return copyAutomaton1
     end
 
+    function selectionAutomaton(automaton1, automaton2)
+        return [[()]]
+    end
+
     function main()
     end
 end
