@@ -37,6 +37,20 @@ module Chin
         copyAutomaton2 = deepcopy(automaton2)
 
         returnAutomaton = connectionAutomaton(connectionAutomaton(oneAutomaton("ϵ"), copyAutomaton1), oneAutomaton("ϵ"))
+        returnAutomatonLength = length(returnAutomaton)
+        beginCopyAutomaton2Length = returnAutomatonLength + 1
+        endCopyAutomaton2Length = returnAutomatonLength + length(copyAutomaton2)
+
+        for node in copyAutomaton2
+            newNode = []
+            for arrow in node
+                if :next ∈ keys(arrow)
+                    push!(newNode, (next = arrow.next + returnAutomatonLength - 1, value = arrow.value))
+                end
+            end
+
+            push!(returnAutomaton, newNode)
+        end
 
         return returnAutomaton
     end
