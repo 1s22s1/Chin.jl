@@ -37,6 +37,7 @@ module Chin
         copyAutomaton2 = deepcopy(automaton2)
 
         returnAutomaton = connectionAutomaton(oneAutomaton("ϵ"), copyAutomaton1)
+        returnAutomaton = connectionAutomaton(returnAutomaton, oneAutomaton("ϵ"))
 
         return returnAutomaton
     end
