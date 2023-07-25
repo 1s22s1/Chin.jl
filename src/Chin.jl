@@ -63,7 +63,7 @@ module Chin
         return map(arrow->arrow.next, arrows)
     end
 
-    needEpsilonTransition(currendNode, automaton) = any(arrow->arrow.value == "ϵ", automaton[currendNode + 1])
+    needepsilontransition(currendNode, automaton) = any(arrow->arrow.value == "ϵ", automaton[currendNode + 1])
 
     function main()
     end

@@ -71,6 +71,6 @@ end
     epsilonAutomaton = [[(next = 1, value = "ϵ")], []]
     sAutomaton = [[(next = 1, value = "s")], []]
 
-    @test needEpsilonTransition(0, epsilonAutomaton) == true
-    @test needEpsilonTransition(0, sAutomaton) == false
+    @test needepsilontransition(0, epsilonAutomaton) == true
+    @test needepsilontransition(0, sAutomaton) == false
 end
