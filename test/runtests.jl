@@ -77,12 +77,23 @@ end
 
 @testset "受理する" begin
     sAutomaton = [[(next = 1, value = "s")], []]
-    stAutomaton = [[(next = 1, value = "s")], [(next = 2, value = "t")], []]
+    stConnectionAutomaton = [[(next = 1, value = "s")], [(next = 2, value = "t")], []]
+    stSelectionAutomaton = [
+        [(next = 1, value = "ϵ"), (next = 4, value = "ϵ")],
+        [(next = 2, value = "s")],
+        [(next = 3, value = "ϵ")],
+        [],
+        [(next = 5, value = "t")],
+        [(next = 3, value = "ϵ")]
+    ]
 
-    @test isaccept(sAutomaton, 1, "s") === true
-    @test isaccept(sAutomaton, 1, "t") === false
+    @test isaccept(sAutomaton, 1, "s") == true
+    @test isaccept(sAutomaton, 1, "t") == false
 
-    @test isaccept(stAutomaton, 2, "st") === true
-    @test isaccept(stAutomaton, 2, "ss") === false
-    @test isaccept(stAutomaton, 2, "ts") === false
+    @test isaccept(stConnectionAutomaton, 2, "st") == true
+    @test isaccept(stConnectionAutomaton, 2, "ss") == false
+    @test isaccept(stConnectionAutomaton, 2, "ts") == false
+
+    @test isaccept(stSelectionAutomaton, 3, "s") == true
+    @test isaccept(stSelectionAutomaton, 3, "t") == true
 end
