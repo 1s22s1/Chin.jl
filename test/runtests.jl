@@ -43,4 +43,14 @@ end
     @test expectedAutomaton[5] ==  []
     @test expectedAutomaton[6] ==  [(next = 6, value = "u")]
     @test expectedAutomaton[7] ==  [(next = 4, value = "ϵ")]
+
+    @test selectionAutomaton(stAutomaton, uAutomaton) == [
+        [(next = 1, value = "ϵ"), (next = 5, value = "ϵ")],
+        [(next = 2, value = "s")],
+        [(next = 3, value = "t")],
+        [(next = 4, value = "ϵ")],
+        [],
+        [(next = 6, value = "u")],
+        [(next = 4, value = "ϵ")]
+    ]
 end
