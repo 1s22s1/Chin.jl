@@ -78,5 +78,5 @@ end
 @testset "受理する" begin
     sAutomaton = [[(next = 1, value = "s")], []]
 
-    @test isaccept(sAutomaton, 1, "s") === nothing
+    @test isaccept(sAutomaton, 1, "s") === true
 end

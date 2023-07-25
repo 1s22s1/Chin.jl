@@ -71,6 +71,17 @@ module Chin
     needepsilontransition(currendNode, automaton) = any(arrow->arrow.value == "ϵ", automaton[currendNode + 1])
 
     function isaccept(automaton, acceptedNode, values)
+        currentNodes = [0]
+
+        for value ∈ split(values, "")
+            currentNodes = transition(currentNodes, automaton, value)
+
+            if isempty(currentNodes)
+                return false
+            end
+        end
+
+        return in(acceptedNode, currentNodes)
     end
 
     function main()
