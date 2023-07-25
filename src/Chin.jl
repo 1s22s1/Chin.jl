@@ -1,6 +1,7 @@
 module Chin
     # using Printf
 
+    # ０からノード番号を数える。
     function oneAutomaton(character)
         automaton = []
 
@@ -54,6 +55,12 @@ module Chin
         push!(returnAutomaton, [(next = returnAutomatonLength - 1, value = "ϵ")])
 
         return returnAutomaton
+    end
+
+    function transition(currendNode, automaton, value)
+        arrows = filter(arrow->arrow.value == value, automaton[currendNode + 1])
+
+        return map(arrow->arrow.next, arrows)
     end
 
     function main()
