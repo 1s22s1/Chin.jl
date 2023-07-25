@@ -22,6 +22,8 @@ end
 @testset "選択に対するオートマトンを作成する" begin
     sAutomaton = [[(next = 1, value = "s")], []]
     tAutomaton = [[(next = 1, value = "t")], []]
+    uAutomaton = [[(next = 1, value = "u")], []]
+    stAutomaton = [[(next = 1, value = "s")], [(next = 2, value = "t")], []]
 
     @test selectionAutomaton(sAutomaton, tAutomaton) == [
         [(next = 1, value = "ϵ"), (next = 4, value = "ϵ")],
@@ -31,4 +33,14 @@ end
         [(next = 5, value = "t")],
         [(next = 3, value = "ϵ")]
     ]
+
+    expectedAutomaton = selectionAutomaton(stAutomaton, uAutomaton)
+
+    @test expectedAutomaton[1] ==  [(next = 1, value = "ϵ"), (next = 5, value = "ϵ")]
+    @test expectedAutomaton[2] ==  [(next = 2, value = "s")]
+    @test expectedAutomaton[3] ==  [(next = 3, value = "t")]
+    @test expectedAutomaton[4] ==  [(next = 4, value = "ϵ")]
+    @test expectedAutomaton[5] ==  []
+    @test expectedAutomaton[6] ==  [(next = 6, value = "u")]
+    @test expectedAutomaton[7] ==  [(next = 4, value = "ϵ")]
 end
