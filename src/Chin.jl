@@ -57,10 +57,15 @@ module Chin
         return returnAutomaton
     end
 
-    function transition(currendNode, automaton, value)
-        arrows = filter(arrow->arrow.value == value, automaton[currendNode + 1])
+    function transition(currendNodes, automaton, value)
+        nextNodes = []
 
-        return map(arrow->arrow.next, arrows)
+        for currendNode ∈ currendNodes
+            arrows = filter(arrow->arrow.value == value, automaton[currendNode + 1])
+            push!(nextNodes, map(arrow->arrow.next, arrows))
+        end
+
+        return vcat(nextNodes...)
     end
 
     needepsilontransition(currendNode, automaton) = any(arrow->arrow.value == "ϵ", automaton[currendNode + 1])

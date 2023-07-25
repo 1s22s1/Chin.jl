@@ -58,13 +58,13 @@ end
 @testset "遷移する" begin
     stAutomaton = [[(next = 1, value = "s")], [(next = 2, value = "t")], []]
 
-    @test transition(0, stAutomaton, "s") == [1]
-    @test transition(0, stAutomaton, "t") == []
-    @test transition(1, stAutomaton, "s") == []
-    @test transition(1, stAutomaton, "t") == [2]
+    @test transition([0], stAutomaton, "s") == [1]
+    @test transition([0], stAutomaton, "t") == []
+    @test transition([1], stAutomaton, "s") == []
+    @test transition([1], stAutomaton, "t") == [2]
 
     selectionAutomaton = [[(next = 1, value = "ϵ"), (next = 2, value = "ϵ")],[],[]]
-    @test transition(0, selectionAutomaton, "ϵ") == [1, 2]
+    @test transition([0], selectionAutomaton, "ϵ") == [1, 2]
 end
 
 @testset "ϵ遷移の必要性の判定" begin
