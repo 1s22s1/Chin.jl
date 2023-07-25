@@ -82,5 +82,7 @@ end
     @test isaccept(sAutomaton, 1, "s") === true
     @test isaccept(sAutomaton, 1, "t") === false
 
-    # @test isaccept(stAutomaton, 1, "st") === true
+    @test isaccept(stAutomaton, 2, "st") === true
+    @test isaccept(stAutomaton, 2, "ss") === false
+    @test isaccept(stAutomaton, 2, "ts") === false
 end
