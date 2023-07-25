@@ -1,6 +1,4 @@
 module Chin
-    # using Printf
-
     # ０からノード番号を数える。
     function oneAutomaton(character)
         automaton = []
