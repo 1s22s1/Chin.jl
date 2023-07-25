@@ -1,6 +1,6 @@
 using Test
 
-import Chin: oneAutomaton, connectionAutomaton, selectionAutomaton, transition, needEpsilonTransition
+import Chin: oneAutomaton, connectionAutomaton, selectionAutomaton, transition, needepsilontransition, isaccept
 
 @testset "一文字に対するオートマトンを作成する" begin
     @test oneAutomaton("s") == [[(next = 1, value = "s")], []]
@@ -73,4 +73,10 @@ end
 
     @test needepsilontransition(0, epsilonAutomaton) == true
     @test needepsilontransition(0, sAutomaton) == false
+end
+
+@testset "受理する" begin
+    sAutomaton = [[(next = 1, value = "s")], []]
+
+    @test isaccept(sAutomaton, 1, "s") === nothing
 end

@@ -65,6 +65,9 @@ module Chin
 
     needepsilontransition(currendNode, automaton) = any(arrow->arrow.value == "ϵ", automaton[currendNode + 1])
 
+    function isaccept(automaton, acceptedNode, values)
+    end
+
     function main()
     end
 end
