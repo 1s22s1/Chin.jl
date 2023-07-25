@@ -96,4 +96,5 @@ end
 
     @test isaccept(stSelectionAutomaton, 3, "s") == true
     @test isaccept(stSelectionAutomaton, 3, "t") == true
+    @test isaccept(stSelectionAutomaton, 3, "u") == false
 end
