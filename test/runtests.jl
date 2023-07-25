@@ -71,8 +71,8 @@ end
     epsilonAutomaton = [[(next = 1, value = "ϵ")], []]
     sAutomaton = [[(next = 1, value = "s")], []]
 
-    @test needepsilontransition(0, epsilonAutomaton) == true
-    @test needepsilontransition(0, sAutomaton) == false
+    @test needepsilontransition([0], epsilonAutomaton) == true
+    @test needepsilontransition([0], sAutomaton) == false
 end
 
 @testset "受理する" begin

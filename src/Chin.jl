@@ -68,7 +68,15 @@ module Chin
         return vcat(nextNodes...)
     end
 
-    needepsilontransition(currendNode, automaton) = any(arrow->arrow.value == "ϵ", automaton[currendNode + 1])
+    function needepsilontransition(currendNodes, automaton)
+        for currendNode ∈ currendNodes
+            if any(arrow->arrow.value == "ϵ", automaton[currendNode + 1])
+                return true
+            end
+        end
+
+        false
+    end
 
     function isaccept(automaton, acceptedNode, values)
         currentNodes = [0]
