@@ -81,12 +81,20 @@ module Chin
     function isaccept(automaton, acceptedNode, values)
         currentNodes = [0]
 
+        while needepsilontransition(currentNodes, automaton)
+            currentNodes = transition(currentNodes, automaton, "ϵ")
+        end
+
         for value ∈ split(values, "")
             currentNodes = transition(currentNodes, automaton, value)
 
             if isempty(currentNodes)
                 return false
             end
+        end
+
+        while needepsilontransition(currentNodes, automaton)
+            currentNodes = transition(currentNodes, automaton, "ϵ")
         end
 
         return in(acceptedNode, currentNodes)
