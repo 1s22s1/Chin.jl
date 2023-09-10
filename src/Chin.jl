@@ -1,5 +1,4 @@
 module Chin
-    # ０からノード番号を数える。
     function oneAutomaton(character)
         automaton = []
 

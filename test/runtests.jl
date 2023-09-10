@@ -2,12 +2,12 @@ using Test
 
 import Chin: oneAutomaton, connectionAutomaton, selectionAutomaton, transition, needepsilontransition, isaccept
 
-@testset "一文字に対するオートマトンを作成する" begin
+@testset "Make a character automaton" begin
     @test oneAutomaton("s") == [[(next = 1, value = "s")], []]
     @test oneAutomaton("ϵ") == [[(next = 1, value = "ϵ")], []]
 end
 
-@testset "連接に対するオートマトンを作成する" begin
+@testset "Make connection automaton" begin
     sAutomaton = [[(next = 1, value = "s")], []]
     tAutomaton = [[(next = 1, value = "t")], []]
     uAutomaton = [[(next = 1, value = "u")], []]
@@ -19,7 +19,7 @@ end
 end
 
 
-@testset "選択に対するオートマトンを作成する" begin
+@testset "Make select automaton" begin
     sAutomaton = [[(next = 1, value = "s")], []]
     tAutomaton = [[(next = 1, value = "t")], []]
     uAutomaton = [[(next = 1, value = "u")], []]
@@ -55,7 +55,7 @@ end
     ]
 end
 
-@testset "遷移する" begin
+@testset "Transition" begin
     stAutomaton = [[(next = 1, value = "s")], [(next = 2, value = "t")], []]
 
     @test transition([0], stAutomaton, "s") == [1]
@@ -67,7 +67,7 @@ end
     @test transition([0], selectionAutomaton, "ϵ") == [1, 2]
 end
 
-@testset "ϵ遷移の必要性の判定" begin
+@testset "Need epsilon transition" begin
     epsilonAutomaton = [[(next = 1, value = "ϵ")], []]
     sAutomaton = [[(next = 1, value = "s")], []]
 
@@ -75,7 +75,7 @@ end
     @test needepsilontransition([0], sAutomaton) == false
 end
 
-@testset "受理する" begin
+@testset "Accept" begin
     sAutomaton = [[(next = 1, value = "s")], []]
     stConnectionAutomaton = [[(next = 1, value = "s")], [(next = 2, value = "t")], []]
     stSelectionAutomaton = [
